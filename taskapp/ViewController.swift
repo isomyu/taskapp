@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var pickerView: UIPickerView = UIPickerView()
+    var pickerView: UIPickerView! = UIPickerView()
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
     
@@ -56,7 +56,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if categoryArray.count != 0{
         self.textField.text = categoryArray[row].categoryName
+        }
     }
     
     @objc func cancel() {
